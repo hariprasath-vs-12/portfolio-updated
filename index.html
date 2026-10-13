@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hariprasath VS | Multi cloud and AI engineer</title>
+<meta name="description" content="Portfolio of Hariprasath VS, a multi cloud and AI engineer with 4 years of experience in IT infrastructure, 3 tier architecture and CI/CD.">
+<meta name="theme-color" content="#d9edfb">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%81%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #d9edfb;
+    --sky-deep: #bfe0f7;
+    --paper: #f3f9ff;
+    --ink: #0e2238;
+    --ink-soft: #3b5570;
+    --ocean: #1d5fa8;
+    --ocean-dark: #154a85;
+    --sun: #ffc24b;
+    --line: #a9cde8;
+    --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    --body: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body {
+    margin: 0;
+    background: var(--sky);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--ocean); outline-offset: 3px; border-radius: 6px; }
+  .wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+
+  /* ---------- Nav ---------- */
+  header.nav {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(217, 237, 251, .85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 4rem; }
+  .brand { font-family: var(--display); font-weight: 800; font-size: 1.15rem; text-decoration: none; letter-spacing: -.01em; }
+  .nav ul { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { text-decoration: none; font-weight: 500; color: var(--ink-soft); padding: .35rem 0; border-bottom: 2px solid transparent; }
+  .nav ul a:hover { color: var(--ink); border-color: var(--ocean); }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--sky-deep) 0%, var(--sky) 100%); }
+  .clouds { position: absolute; inset: 0; pointer-events: none; }
+  .cloud {
+    position: absolute; left: -30%;
+    width: var(--w); height: calc(var(--w) * .26);
+    background: rgba(255,255,255,.7);
+    border-radius: 999px;
+    filter: blur(1px);
+    animation: drift var(--t) linear infinite;
+    animation-delay: var(--d);
+  }
+  .cloud::before, .cloud::after { content: ""; position: absolute; background: inherit; border-radius: 50%; }
+  .cloud::before { width: 42%; height: 150%; left: 14%; bottom: 30%; }
+  .cloud::after  { width: 32%; height: 120%; left: 46%; bottom: 25%; }
+  @keyframes drift { from { transform: translateX(0); } to { transform: translateX(190vw); } }
+
+  .hero-grid {
+    position: relative;
+    display: grid; grid-template-columns: 1.05fr .95fr; gap: 3.5rem; align-items: center;
+    padding: 5rem 0 6rem;
+  }
+  .hello { display: inline-flex; align-items: center; gap: .6rem; font-weight: 500; color: var(--ink-soft); margin: 0 0 1.25rem; }
+  .hello i { width: .65rem; height: .65rem; border-radius: 50%; background: var(--sun); box-shadow: 0 0 0 5px rgba(255,194,75,.35); }
+  h1 {
+    font-family: var(--display); font-weight: 800;
+    font-size: clamp(3rem, 7.2vw, 5.6rem); line-height: .98; letter-spacing: -.035em;
+    margin: 0 0 1.25rem;
+  }
+  .role { font-family: var(--display); font-weight: 500; font-size: clamp(1.25rem, 2.4vw, 1.7rem); margin: 0 0 1.25rem; color: var(--ocean-dark); }
+  .lede { max-width: 34rem; color: var(--ink-soft); font-size: 1.15rem; margin: 0 0 2rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font: 600 1rem var(--body); text-decoration: none; cursor: pointer;
+    padding: .8rem 1.25rem; border-radius: 12px; border: 2px solid var(--ink);
+    background: transparent; color: var(--ink);
+    transition: transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn.primary:hover { background: var(--ocean-dark); border-color: var(--ocean-dark); }
+  .btn.ghost:hover { background: var(--paper); }
+
+  /* ---------- Architecture widget (the memorable bit) ---------- */
+  .arch {
+    background: var(--paper); border: 2px solid var(--ink); border-radius: 22px;
+    padding: 1.4rem; box-shadow: 8px 8px 0 var(--ink);
+  }
+  .arch-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: 1.1rem; }
+  .arch-title { font-family: var(--display); font-weight: 700; font-size: 1.1rem; margin: 0; }
+  .seg { display: inline-flex; background: var(--sky); border-radius: 999px; padding: 4px; border: 1px solid var(--line); }
+  .seg button {
+    font: 600 .9rem var(--body); border: 0; background: transparent; color: var(--ink-soft);
+    padding: .4rem .9rem; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s;
+  }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .tiers { display: grid; gap: .2rem; }
+  .tier { border-radius: 14px; padding: .85rem 1rem; border: 1.5px solid var(--line); background: #fff; }
+  .tier:nth-child(1) { background: #eaf5ff; }
+  .tier:nth-child(3) { background: #e2effb; }
+  .tier-name { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--display); font-weight: 700; }
+  .tier-name small { font: 500 .85rem var(--body); color: var(--ink-soft); }
+  .chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .55rem; min-height: 1.9rem; }
+  .chip { font-size: .85rem; font-weight: 500; padding: .2rem .65rem; border-radius: 999px; background: var(--sky-deep); animation: pop .35s ease both; }
+  @keyframes pop { from { opacity: 0; transform: translateY(5px) scale(.96); } to { opacity: 1; transform: none; } }
+  .link { text-align: center; color: var(--ocean); font-weight: 700; line-height: 1; height: 1.3rem; }
+  .pipeline { display: flex; align-items: center; justify-content: space-between; gap: .3rem; margin-top: 1rem; padding-top: 1rem; border-top: 1.5px dashed var(--line); font-size: .85rem; font-weight: 600; }
+  .pipeline span { background: var(--sun); color: var(--ink); padding: .25rem .6rem; border-radius: 8px; }
+  .pipeline em { font-style: normal; color: var(--ink-soft); }
+  .arch-note { margin: .9rem 0 0; font-size: .9rem; color: var(--ink-soft); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 5.5rem 0; }
+  section.alt { background: var(--paper); border-block: 1px solid var(--line); }
+  h2 { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.025em; line-height: 1.05; margin: 0 0 .75rem; }
+  .section-intro { max-width: 38rem; color: var(--ink-soft); margin: 0 0 3rem; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+  .about p { margin: 0 0 1rem; max-width: 36rem; }
+  .facts { display: grid; gap: 1rem; }
+  .fact { display: flex; align-items: baseline; gap: 1.25rem; padding: 1.1rem 1.4rem; border-radius: 16px; background: var(--paper); border: 1.5px solid var(--line); }
+  .fact:nth-child(2) { margin-left: 1.5rem; }
+  .fact:nth-child(3) { margin-left: 3rem; }
+  .fact b { font-family: var(--display); font-size: 2.4rem; line-height: 1; color: var(--ocean-dark); min-width: 4.2rem; }
+  .fact span { color: var(--ink-soft); }
+
+  /* Experience timeline */
+  .timeline { position: relative; display: grid; gap: 3.5rem; }
+  .timeline::before { content: ""; position: absolute; left: 11.2rem; top: .6rem; bottom: .6rem; width: 2px; background: var(--line); }
+  .job { display: grid; grid-template-columns: 10rem 1fr; gap: 3rem; position: relative; }
+  .job::before {
+    content: ""; position: absolute; left: calc(10rem + 1.5rem - 8px + 1px); top: .55rem;
+    width: 16px; height: 16px; border-radius: 50%; background: var(--paper); border: 4px solid var(--ocean);
+  }
+  .job.now::before { border-color: var(--sun); background: var(--ink); }
+  .when { font-weight: 600; color: var(--ink-soft); padding-top: .15rem; }
+  .when small { display: block; font-weight: 400; }
+  .job h3 { font-family: var(--display); font-size: 1.6rem; line-height: 1.15; margin: 0 0 .2rem; letter-spacing: -.015em; }
+  .job .co { color: var(--ocean-dark); font-weight: 600; margin: 0 0 1rem; }
+  .job .what { max-width: 40rem; margin: 0 0 1rem; }
+  .job ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .8rem; max-width: 42rem; }
+  .job li { padding-left: 1.5rem; position: relative; }
+  .job li::before { content: ""; position: absolute; left: 0; top: .7em; width: .7rem; height: 2px; background: var(--ocean); }
+  .job li strong { font-weight: 600; }
+
+  /* Toolbox */
+  .toolbox { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .group { background: var(--sky); border: 1.5px solid var(--line); border-radius: 18px; padding: 1.5rem; }
+  .group:nth-child(2) { background: var(--sky-deep); }
+  .group h3 { font-family: var(--display); font-size: 1.2rem; margin: 0 0 .9rem; }
+  .group ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+  .group li { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: .3rem .7rem; font-weight: 500; font-size: .95rem; }
+
+  /* Contact */
+  .contact { text-align: left; }
+  .mail {
+    display: inline-block; font-family: var(--display); font-weight: 800; letter-spacing: -.025em;
+    font-size: clamp(1.4rem, 4.6vw, 3.1rem); line-height: 1.1; text-decoration: none; word-break: break-word;
+    border-bottom: 4px solid var(--sun); padding-bottom: .1em; margin: .5rem 0 2rem;
+  }
+  .mail:hover { color: var(--ocean-dark); }
+  .copied { font-weight: 600; color: var(--ocean-dark); min-height: 1.6rem; margin: .75rem 0 0; }
+
+  footer { padding: 2rem 0 3rem; color: var(--ink-soft); font-size: .95rem; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .hero-grid, .about { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-grid { padding: 3.5rem 0 4rem; }
+    .toolbox { grid-template-columns: 1fr; }
+    .timeline::before { left: 7px; }
+    .job { grid-template-columns: 1fr; gap: .5rem; padding-left: 2.25rem; }
+    .job::before { left: 0; top: .35rem; }
+    .fact:nth-child(n) { margin-left: 0; }
+    section { padding: 4rem 0; }
+  }
+  @media (max-width: 560px) {
+    .nav ul { gap: 1rem; font-size: .95rem; }
+    .arch { box-shadow: 5px 5px 0 var(--ink); padding: 1.1rem; }
+    .pipeline { flex-wrap: wrap; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .cloud { animation: none; left: 10%; }
+    .chip { animation: none; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Hariprasath VS</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#toolbox">Toolbox</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="clouds" aria-hidden="true">
+      <div class="cloud" style="--w:260px; --t:90s;  --d:-20s; top:8%"></div>
+      <div class="cloud" style="--w:180px; --t:120s; --d:-75s; top:34%"></div>
+      <div class="cloud" style="--w:340px; --t:150s; --d:-110s; top:62%"></div>
+      <div class="cloud" style="--w:220px; --t:100s; --d:-45s; top:82%"></div>
+    </div>
+
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hello"><i></i>Hi, I'm</p>
+        <h1>Hariprasath VS</h1>
+        <p class="role">Multi cloud and AI engineer</p>
+        <p class="lede">I build the infrastructure applications stand on: 3 tier architectures across multiple clouds, delivered through automated CI/CD, backed by disaster recovery that has been tested.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:hariprasath120597@gmail.com">Email me</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/hariprasath-vs-560a4b1a6/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/hariprasath-vs-12" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <aside class="arch" aria-label="Interactive 3 tier architecture diagram">
+        <div class="arch-head">
+          <h2 class="arch-title">One design, any cloud</h2>
+          <div class="seg" role="group" aria-label="Choose a cloud provider">
+            <button type="button" data-p="aws" aria-pressed="true">AWS</button>
+            <button type="button" data-p="azure" aria-pressed="false">Azure</button>
+            <button type="button" data-p="gcp" aria-pressed="false">GCP</button>
+          </div>
+        </div>
+        <div class="tiers" id="tiers"></div>
+        <div class="pipeline" aria-label="CI/CD flow">
+          <span>Commit</span><em>&rsaquo;</em><span>Build</span><em>&rsaquo;</em><span>Test</span><em>&rsaquo;</em><span>Deploy</span>
+        </div>
+        <p class="arch-note">The same layered pattern, mapped to each provider's services. Tap a provider to see how.</p>
+      </aside>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2>Calm infrastructure, built to be boring in production</h2>
+        <p>I started in IT infrastructure, looking after everything that keeps a company running day to day: servers, applications, users and recovery plans. That grounding shapes how I work in the cloud today.</p>
+        <p>Now I design and ship cloud platforms across more than one provider, and I'm growing into AI and agent-based tooling to take more of the repetitive operations work off people's plates.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>4</b><span>years in IT infrastructure and cloud</span></div>
+        <div class="fact"><b>2</b><span>companies, from on-site IT to multi cloud delivery</span></div>
+        <div class="fact"><b>3</b><span>tier architecture as my go-to pattern across clouds</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="alt">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <p class="section-intro">From running a whole company's IT to building cloud platforms for clients.</p>
+
+      <div class="timeline">
+        <article class="job now">
+          <div class="when">Feb 2025 to present<small>CloudifyOps</small></div>
+          <div>
+            <h3>Cloud engineer</h3>
+            <p class="co">CloudifyOps</p>
+            <p class="what">I design and implement cloud infrastructure for client workloads, with a focus on repeatable architecture and automated delivery.</p>
+            <ul>
+              <li><strong>3 tier architecture on multiple clouds.</strong> Designed and implemented the web, application and data layers on more than one cloud platform, keeping the same structure so teams can reason about each environment the same way.</li>
+              <li><strong>Network and security layout.</strong> Separated public-facing components from application servers and kept the data tier private, so each layer only talks to the one next to it.</li>
+              <li><strong>CI/CD implementation.</strong> Set up pipelines that take code from commit through build and test to deployment, replacing manual releases with consistent, repeatable ones.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="when">Jun 2022 to Sep 2024<small>Yalamanchili</small></div>
+          <div>
+            <h3>IT infrastructure executive</h3>
+            <p class="co">Yalamanchili</p>
+            <p class="what">I was responsible for the company's IT environment end to end, which gave me a practical view of what breaks, what needs backing up and what users actually need.</p>
+            <ul>
+              <li><strong>Whole IT infrastructure.</strong> Managed the company's IT setup day to day, including servers, networking, systems and user access, keeping everything available for the business.</li>
+              <li><strong>Application support.</strong> First point of contact for application issues: diagnosing problems, fixing or escalating them, and following up until users were back to work.</li>
+              <li><strong>Disaster recovery management.</strong> Owned backups and recovery planning so the business could restore critical systems after an outage or data loss.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="toolbox">
+    <div class="wrap">
+      <h2>Toolbox</h2>
+      <p class="section-intro">What I reach for when building and running cloud systems.</p>
+      <div class="toolbox">
+        <div class="group">
+          <h3>Clouds</h3>
+          <ul><li>AWS</li><li>Azure</li><li>GCP</li></ul>
+        </div>
+        <div class="group">
+          <h3>Build and deliver</h3>
+          <ul><li>Terraform</li><li>Kubernetes</li><li>CI/CD pipelines</li><li>3 tier architecture</li></ul>
+        </div>
+        <div class="group">
+          <h3>Operate and explore</h3>
+          <ul><li>Disaster recovery</li><li>Application support</li><li>AI and agents</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt">
+    <div class="wrap contact">
+      <h2>Let's talk cloud</h2>
+      <p class="section-intro">Got a project, a question or an architecture to untangle? Send me a note.</p>
+      <a class="mail" id="mail" href="mailto:hariprasath120597@gmail.com">hariprasath120597@gmail.com</a>
+      <div class="actions">
+        <button class="btn primary" type="button" id="copy">Copy email</button>
+        <a class="btn ghost" href="https://www.linkedin.com/in/hariprasath-vs-560a4b1a6/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/hariprasath-vs-12" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="copied" id="copied" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Hariprasath VS</span>
+    <span id="year"></span>
+  </div>
+</footer>
+
+<script>
+  var providers = {
+    aws: {
+      web:  ["CloudFront", "Application Load Balancer", "Public subnets"],
+      app:  ["EC2", "Auto Scaling group", "Private subnets"],
+      data: ["RDS", "S3", "Database subnets"]
+    },
+    azure: {
+      web:  ["Front Door", "Application Gateway", "Public subnet"],
+      app:  ["Virtual Machines", "Scale Sets", "Private subnet"],
+      data: ["Azure SQL", "Blob Storage", "Private endpoint"]
+    },
+    gcp: {
+      web:  ["Cloud CDN", "Cloud Load Balancing", "Public subnet"],
+      app:  ["Compute Engine", "Managed instance group", "Private subnet"],
+      data: ["Cloud SQL", "Cloud Storage", "Private IP"]
+    }
+  };
+  var tiers = [
+    { key: "web",  name: "Web tier",  note: "what users reach" },
+    { key: "app",  name: "App tier",  note: "business logic" },
+    { key: "data", name: "Data tier", note: "kept private" }
+  ];
+  var tiersEl = document.getElementById("tiers");
+
+  function render(p) {
+    var html = "";
+    tiers.forEach(function (t, i) {
+      html += '<div class="tier"><div class="tier-name">' + t.name + '<small>' + t.note + '</small></div><div class="chips">';
+      providers[p][t.key].forEach(function (c, j) {
+        html += '<span class="chip" style="animation-delay:' + (i * 90 + j * 50) + 'ms">' + c + '</span>';
+      });
+      html += '</div></div>';
+      if (i < tiers.length - 1) html += '<div class="link" aria-hidden="true">&#8595;</div>';
+    });
+    tiersEl.innerHTML = html;
+  }
+
+  document.querySelectorAll(".seg button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".seg button").forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+      btn.setAttribute("aria-pressed", "true");
+      render(btn.getAttribute("data-p"));
+    });
+  });
+  render("aws");
+
+  var copyBtn = document.getElementById("copy");
+  var copied = document.getElementById("copied");
+  copyBtn.addEventListener("click", function () {
+    var email = "hariprasath120597@gmail.com";
+    function done(ok) {
+      copied.textContent = ok ? "Email copied." : "Couldn't copy. Select the address above instead.";
+      setTimeout(function () { copied.textContent = ""; }, 2500);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(function () { done(true); }, function () { done(false); });
+    } else { done(false); }
+  });
+
+  document.getElementById("year").textContent = "\u00A9 " + new Date().getFullYear();
+</script>
+</body>
+</html>
